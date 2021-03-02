@@ -1,0 +1,64 @@
+<div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Detalhes dos <b>Professores</b></h2></div>
+                    <div class="col-sm-4">
+                        
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Matricula</th>
+                        <th>Sexo</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="professor in professores">
+                        <td>{{professor.id}}</td>
+                        <td>{{professor.nome}}</td>
+                        <td>{{professor.matricula}}</td>
+                        <td>{{professor.sexo}}</td>
+                        <td>
+                            <a ng-click="selecionarProfessorEditar(professor.id)" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        </td>
+                        <td>
+                            <a ng-click="deletarProfessor(professor.id)" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+        </div>
+        <div class="table-wrapper">
+            <h3>Informações do Professor</h3>
+            <table cellpadding="2" cellspacing="2" class="table">
+                <tr>
+                    <td>Nome</td>
+                    <td><input type="text" ng-model="nome"></td>
+                </tr>
+                <tr>
+                    <td>Matricula</td>
+                    <td><input type="text" ng-model="matricula"></td>
+                </tr>
+                <tr>
+                    <td>Sexo</td>
+                    <td><select ng-model="sexo" ng-options="sexo for sexo in sexos">
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="button" class="btn btn-success" value="Adicionar" ng-click="adicionarProfessor()">
+                        <input type="button" class="btn btn-info" value="Editar" ng-click="editarProfessor()">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    
